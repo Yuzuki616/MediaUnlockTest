@@ -14,7 +14,7 @@ import (
 	"sync"
 	"time"
 
-	m "MediaUnlockTest"
+	m "github.com/Yuzuki616/MediaUnlockTest"
 
 	pb "github.com/schollz/progressbar/v3"
 )
@@ -195,7 +195,7 @@ func NorthAmerica(c http.Client) {
 	excute("BritBox", m.BritBox, c)
 	excute("CW TV", m.CW_TV, c)
 	excute("NBA TV", m.NBA_TV, c)
-	excute("Fubo TV", m.FuboTV, c)
+	//excute("Fubo TV", m.FuboTV, c)
 	excute("Tubi TV", m.TubiTV, c)
 	excute("Sling TV", m.SlingTV, c)
 	excute("Pluto TV", m.PlutoTV, c)
@@ -211,7 +211,7 @@ func NorthAmerica(c http.Client) {
 	excute("Direct Stream", m.DirectvStream, c)
 	R = append(R, &result{Name: "CA", Divider: true})
 	excute("CBC Gem", m.CBCGem, c)
-	excute("Crave", m.Crave, c)
+	//excute("Crave", m.Crave, c)
 }
 
 func SouthAmerica() {
