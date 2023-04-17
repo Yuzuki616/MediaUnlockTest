@@ -1,4 +1,4 @@
-package mediaunlocktest
+package MediaUnlockTest
 
 import (
 	"io"
@@ -22,6 +22,9 @@ func ChatGPT(c http.Client) Result {
 	resp, err := GET(c, "https://chat.openai.com")
 	if err != nil {
 		return Result{Success: false, Err: ErrNetwork}
+	}
+	if resp.StatusCode == 403 {
+		return Result{Success: false, Info: "Blocked"}
 	}
 	if strings.Contains(resp.Header.Get("content-type"), "text/plain") {
 		return Result{Success: false, Info: "Blocked"}

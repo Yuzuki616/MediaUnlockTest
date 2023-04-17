@@ -1,4 +1,4 @@
-package mediaunlocktest
+package MediaUnlockTest
 
 import (
 	"context"

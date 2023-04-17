@@ -1,4 +1,4 @@
-package mediaunlocktest
+package MediaUnlockTest
 
 import (
 	"encoding/json"
@@ -7,7 +7,7 @@ import (
 )
 
 func NowE(c http.Client) Result {
-	resp,err:=PostJson(c,"https://webtvapi.nowe.com/16/1/getVodURL", 
+	resp, err := PostJson(c, "https://webtvapi.nowe.com/16/1/getVodURL",
 		`{"contentId":"202105121370235","contentType":"Vod","pin":"","deviceId":"W-60b8d30a-9294-d251-617b-c12f9d0c","deviceType":"WEB"}`,
 	)
 	if err != nil {

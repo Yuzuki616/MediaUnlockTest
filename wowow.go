@@ -1,3 +1,3 @@
-package mediaunlocktest
+package MediaUnlockTest
 
 // TODO: wowow
