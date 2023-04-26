@@ -1,6 +1,7 @@
 package MediaUnlockTest
 
 import (
+	"bytes"
 	"io"
 	"net/http"
 	"strings"
@@ -24,7 +25,10 @@ func ChatGPT(c http.Client) Result {
 		return Result{Success: false, Err: ErrNetwork}
 	}
 	if resp.StatusCode == 403 {
-		return Result{Success: false, Info: "Blocked"}
+		b, _ := io.ReadAll(resp.Body)
+		if bytes.Contains(b, []byte("Access denied")) {
+			return Result{Success: false, Info: "Blocked"}
+		}
 	}
 	if strings.Contains(resp.Header.Get("content-type"), "text/plain") {
 		return Result{Success: false, Info: "Blocked"}
